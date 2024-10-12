@@ -20,7 +20,7 @@ class PullBackStrategy(QCAlgorithm):
         if self.spy.symbol in data:
             price=self.securities[self.spy.symbol].price
             if not self.portfolio.invested:
-                if price>self.sma200.current.value and price<self.sma20.current.value and self.rsi.current.value<30:
+                if price>self.sma200.current.value and price<self.sma20.current.value and self.rsi.current.value<45:
                     self.set_holdings(self.spy.symbol,1)
                     self.log("BUY")
                     self.log(f"sma200:{self.sma200.current.value}")
@@ -28,7 +28,7 @@ class PullBackStrategy(QCAlgorithm):
                     self.log(f"rsi:{self.rsi.current.value}")
                     self.log(f"Buy Price:{self.securities[self.spy.symbol].price}")
             if self.portfolio.invested:
-                if price>self.sma20.current.value:
+                if price>self.sma20.current.value or self.rsi.current.value>65:
                     self.liquidate(self.spy.symbol)
                     self.log("SELL")
                     self.set_holdings(self.spy.symbol,1)
