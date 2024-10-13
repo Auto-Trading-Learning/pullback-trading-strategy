@@ -12,7 +12,7 @@ class PullBackStrategy(QCAlgorithm):
         self.sma200=self.sma(self.spy.symbol, 200, Resolution.DAILY)
         self.sma20=self.sma(self.spy.symbol,20, Resolution.DAILY)
         self.rsi=self.rsi(self.spy.symbol, 5, MovingAverageType.SIMPLE, Resolution.DAILY)
-
+        self.SetWarmUp(200)
 
     def on_data(self, data: Slice):
         if not self.sma200.is_ready or not self.sma20.is_ready or not self.rsi.is_ready:
