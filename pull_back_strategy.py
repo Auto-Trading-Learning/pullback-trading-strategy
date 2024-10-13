@@ -15,6 +15,9 @@ class PullBackStrategy(QCAlgorithm):
 
 
     def on_data(self, data: Slice):
+        #Llive trading usually restarts every week. So, live trading never gets execution because it will take 200 days of run to pass through this condition.
+        # You need to warm up the indicators on init and make sure the indicators are ready while entering on data event. Its still worth to check if indicators are rady or not
+        # to avoid any potential exception and algo crash.
         if not self.sma200.is_ready or not self.sma20.is_ready or not self.rsi.is_ready:
             return
         if self.spy.symbol in data:
