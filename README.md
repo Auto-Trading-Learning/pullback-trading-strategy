@@ -1,5 +1,7 @@
 https://www.quantifiedstrategies.com/pullback-trading-strategy/
 
+https://www.quantconnect.com/project/19725489
+
 ![image](https://github.com/user-attachments/assets/1bd41fa6-a58c-4dca-b861-cb8227e1b083)
 
 ![image](https://github.com/user-attachments/assets/b64a973f-1324-4cf9-8acc-7d1a2d8d1642)
